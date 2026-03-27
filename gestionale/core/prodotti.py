@@ -49,7 +49,7 @@ class Prodotto:
 
     def __eq__(self, other: object):
 
-        if not isinstance(other, Prodotto):
+        if not isinstance(other, Prodotto): #Se l'oggetto other non è un'istanza della classe prodotto(per il not) allora esegui il codice che segue
             return NotImplemented
         return (self.name == other.name
                 and self.price == other.price
