@@ -1,6 +1,6 @@
 from colorama import init, Fore, Back, Style
 from datetime import date
-
+#Colorama e i suoi metodi permettono di colorare ciò che stampo
 from gestionale.core.clienti import Cliente, ClienteRecord
 from gestionale.core.prodotti import ProdottoRecord
 from gestionale.vendite.fatture import Fattura

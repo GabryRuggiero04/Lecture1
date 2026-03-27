@@ -12,12 +12,12 @@ p3 = ProdottoRecord("Auricolari", 250.0)
 carrello =[p1, p2, p3, ProdottoRecord("Tablet", 700.0)]
 
 print("Prodotti nel carrello:")
-for i, p in enumerate(carrello):
+for i, p in enumerate(carrello):  #enumerate restituisce una tupla contenente indice e valore
     print(f"{i}) {p.name} - {p.prezzo_unitario}")
 
 #Aggiungere ad una lista
 carrello.append(ProdottoRecord("Monitor", 150.0))
-
+#Ordino la lista "carrello" in ordine di prezzo decrescente(dal più alto) perchè c'è il reverse, x sarebbe l'oggetto della lista
 carrello.sort(key = lambda x: x.prezzo_unitario, reverse=True)
 
 print("Prodotti nel carrello:")
@@ -29,8 +29,8 @@ print(f"Totale del carrello: {tot}")
 
 #Aggiungere
 carrello.append(ProdottoRecord("Propdo", 100.0))
-carrello.extend([ProdottoRecord("aaa", 100.0), ProdottoRecord("bbb", 100.0)])
-carrello.insert(2, ProdottoRecord("ccc", 100.0))
+carrello.extend([ProdottoRecord("aaa", 100.0), ProdottoRecord("bbb", 100.0)]) #Aggiungo una lista (più elementi in generale)
+carrello.insert(2, ProdottoRecord("ccc", 100.0)) #Inserisce l'oggetto alla posizione 2
 
 #Rimuovere
 carrello.pop() # rimuove l'ultimo elemento
