@@ -39,15 +39,15 @@ carrello.remove(p1) #elimino la prima occorrenza di p1
 # carrello.clear() #svuoto la lista
 
 #Sorting
-# carrello.sort() #ordina seguendo ordinamento naturale -- questo non funziona se gli oggetti contenuti non definisco un metodo __lt__
+# carrello.sort() #ordina seguendo ordinamento naturale (-- questo non funziona se gli oggetti contenuti non definisco un metodo __lt__)
 # carrello.sort(reverse=True) #ordina al contrario
 # carrello.sort(key = function)
-# carrello_ordinato = sorted(carrello)
+# carrello_ordinato = sorted(carrello) crea una copia ordinata, non modifica quella già esistente
 
 #Copie ed altro
-carrello.reverse() # inverte l'ordine
-carrello_copia = carrello.copy() # shallow copy
-carrello_copia2 = copy.deepcopy(carrello) # deep copy, ovvero copio anche il contenuto
+carrello.reverse() # inverte l'ordine, restituisce la lista ordinata al contrario
+carrello_copia = carrello.copy() # shallow copy, proprio gli stessi oggetti cioè stessi indirizzo di memoria, legata alla originale per il contenuto
+carrello_copia2 = copy.deepcopy(carrello) # deep copy, ovvero copio anche il contenuto, indipendente dalla originale
 
 # TUPLE
 sede_principale = (45, 8) #lat e long della sede di torino
@@ -77,21 +77,21 @@ tot, media, max, min = calcola_statistiche_carrello(carrello)
 print(tot)
 
 #SET
-categorie = {"Gold", "Silver", "Bronze", "Gold"}
+categorie = {"Gold", "Silver", "Bronze", "Gold"} #set contiene solo una volta, no duplicati
 print(categorie)
 print(len(categorie))
 categorie2 = {"Platinum", "Elite", "Gold"}
-# categorie_all = categorie.union(categorie2)
-categorie_all = categorie | categorie2 # unione
+# categorie_all = categorie.union(categorie2) #unione 1
+categorie_all = categorie | categorie2 # unione 2
 print(categorie_all)
 
-categorie_comuni = categorie & categorie2 # solo elementi comuni
+categorie_comuni = categorie & categorie2 # solo elementi comuni, intersezione
 print(categorie_comuni)
 
-categorie_esclusive = categorie - categorie2 #solo gli elementi presenti in uno dei due set
+categorie_esclusive = categorie - categorie2 #solo gli elementi presenti in categorie che non sono presenti in categorie 2
 print(categorie_esclusive)
 
-categorie_esclusive_symm = categorie ^ categorie2 # differenza simmetrica
+categorie_esclusive_symm = categorie ^ categorie2 # differenza simmetrica, elementi contenuti solo in uno dei due set, complementare di intersezione
 print(categorie_esclusive_symm)
 
 prodotti_ordine_A = {ProdottoRecord("Laptop", 1200),
@@ -111,7 +111,7 @@ s.add(ProdottoRecord("aaa", 20.0)) #aggiunge un elemento
 s.update([ProdottoRecord("aaa", 20.0), ProdottoRecord("bbb", 20.0)]) #aggiungo più elementi
 
 #togliere
-# s.remove(elem) #rimuove un elemento. Raise KeyError se non esiste.
+# s.remove(elem) #rimuove un elemento. (Raise KeyError se non esiste.)
 # s.discard(elem) #rimuove un elemento, senza "arrabbiarsi" se questo non esiste.
 s.pop() #rimuove e restituisce un elemento.
 s.clear()
@@ -124,7 +124,7 @@ s.symmetric_difference(s1) #s ^s1, ovvero elementi di s non contenuti in s1 ed e
 
 s1.issubset(s) #se gli elementi di s1 sono contenuti in s
 s1.issuperset(s) # se gli elementi di s sono contenuti in s1
-s1.isdisjoint(s) # se gli elementi di s e quelli di s1 sono diversi
+s1.isdisjoint(s) # se gli elementi di s e quelli di s1 sono diversi, totalmente disgiunti
 
 #Dictionary
 catalogo = {
