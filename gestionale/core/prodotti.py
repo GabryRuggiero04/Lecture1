@@ -92,10 +92,10 @@ class Abbonamento:
 class ProdottoRecord:
     name: str
     prezzo_unitario: float
-
+    #Serve per poterli inserire in un dizionario oppure in un set
     def __hash__(self):
         return hash((self.name, self.prezzo_unitario))
-
+    #Per stampare in un certo modo i prodotti (toString in java)
     def __str__(self):
         return f"{self.name} -- {self.prezzo_unitario}"
 

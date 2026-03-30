@@ -139,14 +139,14 @@ prod = catalogo[cod]
 
 print(f"Il prodotto con codice {cod} è {prod}")
 
-# print(f"Cerco un altro oggetto: {catalogo["NonEsiste"]}")
+#print(f"Cerco un altro oggetto: {catalogo["NonEsiste"]}") Mi scatena un errore!!!
 
-prod1 = catalogo.get("NonEsiste")
+prod1 = catalogo.get("NonEsiste") #metodo get non scatena nessun errore nel caso la chiave data non esiste nel dizionario
 
 if prod1 is None:
     print("Prodotto non trovato")
 
-prod2 = catalogo.get("NonEsiste2", ProdottoRecord("Sconosciuto", 0))
+prod2 = catalogo.get("NonEsiste2", ProdottoRecord("Sconosciuto", 0)) #alternativa con il get faccio restituire qualcosa di default(deciso da me) se ciò che cerco non esiste
 
 print(prod2)
 
@@ -161,7 +161,7 @@ for v in values:
     print(v)
 
 for key, val in catalogo.items():
-    print(f"Cod {key} è associata a: {val}")
+    print(f"Cod {key} è associata a: {val}") #itero la coppia direttamente
 
 #rimuovere dal dizionario
 rimosso = catalogo.pop("LAP002")
@@ -171,9 +171,9 @@ print(rimosso)
 prezzi = {codice: prod.prezzo_unitario for codice,prod in catalogo.items()}
 
 #DA RICORDARE PER DICT
-# d[key] = v # scrivo sul dizionbario
-# v = d[key] # leggere -- restituisce key error se non esiste
-# v = d.get(key, default) # legge senza rischiare keyerror. Se non esiste rende il default
+# d[key] = v # scrivo sul dizionario (sia per creare che per sovrascrivere/aggiornare)
+# v = d[key] # leggere -- restituisce key error se non esiste.
+# v = d.get(key, default) # legge senza rischiare keyerror. Se non esiste rende il default.
 # d.pop(key) # restiuisce un voalore e lo cancella dal diz
 # d.clear() # elimina tutto.
 # d.keys() # mi restituisce tutte le chiavi definite nel diz
@@ -196,7 +196,7 @@ o4 = Ordine([], ClienteRecord("Carlo Masone", "carlo@polito.it", "Gold"))
 ordini_da_processare.append((o1, 0))
 ordini_da_processare.append((o2, 10))
 ordini_da_processare.append((o3, 3))
-ordini_da_processare.append((o4, 45))
+ordini_da_processare.append((o4, 45)) #dovrei poi fare il sort sul secondo elemento della tupla, rappresenta il tempo
 
 """2) Memorizzare i CF dei clienti (univoco)"""
 # Collection?
@@ -233,17 +233,17 @@ lista_clienti = [
     ClienteRecord("Fulvio Corno", "carlo@polito.it", "Silver")
 ]
 
-categorie = [c.categoria for c in lista_clienti]
-categorie_counter = Counter(categorie)
+categorie = [c.categoria for c in lista_clienti]#prende la categoria di c per ogni c che è all'interno della lista
+categorie_counter = Counter(categorie)#crea diciamo un dizionario con chiave la categoria e valore il numero di volte che ogni categoria è presente
 
 print("Distribuzione categorie clienti")
 print(categorie_counter)
 
 print("2 Categorie più frequent1")
-print(categorie_counter.most_common(2))
+print(categorie_counter.most_common(2)) #il numero indica la quantità di, in questo caso, categorie più comuni che deve prendere
 
 print("totale:")
-print(categorie_counter.total())
+print(categorie_counter.total()) #somma di quante categorie ci sono
 
 vendite_gennaio = Counter(
     {"Laptop": 13, "Tablet": 15}
@@ -253,7 +253,7 @@ vendite_febbraio = Counter(
     {"Laptop": 3, "Stampante": 1}
 )
 
-vendite_bimestre = vendite_gennaio+vendite_febbraio
+vendite_bimestre = vendite_gennaio+vendite_febbraio #somma delle vendite dei due mesi, aggrega gli stessi tipi
 
 #Aggregare informazione
 print(f"Vendite Gennaio: {vendite_gennaio}")
@@ -274,4 +274,3 @@ c.most_common(n) #restituisce gli n elementi più frequenti
 c.total() # somma dei conteggi
 
 #Defaultdicts
-
