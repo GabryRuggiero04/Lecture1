@@ -21,7 +21,7 @@ class GestoreOrdini:
         self._ordini_da_processare = deque()
         self._ordini_processati = []
         self._statistiche_prodotti = Counter()
-        self._ordini_per_categoria = defaultdict(list)
+        self._ordini_per_categoria = defaultdict(list) #Non da errore se non esiste una chiave ma restituisce una lista vuota
         # self._dao = DAO()
         self._allP = []
         self._allC = []
@@ -49,10 +49,8 @@ class GestoreOrdini:
 
     def crea_ordine (self, nomeP, prezzoP, quantitaP,
                      nomeC, mailC, categoriaC):
-
         prod = ProdottoRecord(nomeP, prezzoP)
         cliente = ClienteRecord(nomeC, mailC, categoriaC)
-
         self._update_DB(prod, cliente)
         return Ordine([RigaOrdine(prod, quantitaP)],cliente)
 
@@ -84,10 +82,10 @@ class GestoreOrdini:
         # Laptop - 10 +1
         # Mouse - 5 +2
         for riga in ordine.righe:
-            self._statistiche_prodotti[riga.prodotto.name] += riga.quantita
+            self._statistiche_prodotti[riga.prodotto.name] += riga.quantita #aggiunge la quantità per ogni prodotto venduto
 
         #Raggruppare gli ordini per categoria
-        self._ordini_per_categoria[ordine.cliente.categoria].append(ordine)
+        self._ordini_per_categoria[ordine.cliente.categoria].append(ordine) #come fare dict[chiave]= aggiungi l'ordine corrente
 
         #Archiviamo l'ordine
         self._ordini_processati.append(ordine)
@@ -104,12 +102,12 @@ class GestoreOrdini:
         ordini = []
 
         while self._ordini_da_processare:
-            _, ordine = self.processa_prossimo_ordine()
+            _, ordine = self.processa_prossimo_ordine() #quando chiamo una variabile con undercode( _ ) vuol dire che non mi serve ma devo per forza dargli una nome
             ordini.append(ordine)
         print("Tutti gli ordini sono stati processati.")
         return ordini
 
-    def get_statistiche_prodotti(self, top_n: int = 5):
+    def get_statistiche_prodotti(self, top_n: int = 5): #metodo deve ricevere un intero altrimenti di default i 5 più venduti
         "Questo metodo restituisce info sui prodotti più venduti. "
         valori = []
         for prodotto, quantità in self._statistiche_prodotti.most_common(top_n):

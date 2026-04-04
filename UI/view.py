@@ -8,7 +8,7 @@ class View:
         self._controller = None
         self._page.title = "TdP 2025 - Software Gestionale"
         self._page.horizontal_alignment = "CENTER"
-        self._page.theme_mode = ft.ThemeMode.LIGHT
+        self._page.theme_mode = ft.ThemeMode.LIGHT #Pagina con sfondo bianco
         self._txtInNomeP = None
         self.update_page()
 

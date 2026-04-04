@@ -1,6 +1,7 @@
 from gestionale.vendite.ordini import Ordine, RigaOrdine, OrdineConSconto
 from gestionale.core.prodotti import Prodotto, crea_prodotto_standard, ProdottoRecord
-from gestionale.core.clienti import Cliente, ClienteRecord
+from gestionale.core.clienti import Cliente
+from gestionale.core.cliente import  ClienteRecord
 import networkx as nx
 
 print("=======================================================")

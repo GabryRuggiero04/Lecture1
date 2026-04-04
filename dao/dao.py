@@ -11,7 +11,7 @@ class DAO:
     def getAllProdotti():
         # cnx = mysql.connector.connect(
         #     user = "root",
-        #     password = "rootroot",
+        #     password = "gabrygaia0413",
         #     host = "127.0.0.1",
         #     database = "sw_gestionale"
         # )

@@ -71,7 +71,7 @@ class Controller:
                                          quantita, nomeC,
                                          mail, categoria)
         self._model.add_ordine(ordine)
-
+        #reimposto tutti i textfield vuoti
         self._view._txtInNomeP.value = ""
         self._view._txtInPrezzo.value = ""
         self._view._txtInQuantita.value = ""
