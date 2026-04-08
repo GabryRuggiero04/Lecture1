@@ -9,12 +9,17 @@ class DAO:
 
     @staticmethod
     def getAllProdotti():
-        # cnx = mysql.connector.connect(
-        #     user = "root",
-        #     password = "gabrygaia0413",
-        #     host = "127.0.0.1",
-        #     database = "sw_gestionale"
-        # )
+        #try:
+        #   cnx = mysql.connector.connect(
+        #       user = "root",
+        #       password = "rootroot",
+        #       host = "127.0.0.1",
+        #       database = "sw_gestionale"
+        #       )
+        #except mysql.connector.Error as err:
+        #   print(err)
+        #   result = None
+        #else:
         cnx = DBConnect.getConnection()
 
         cursor = cnx.cursor(dictionary=True)

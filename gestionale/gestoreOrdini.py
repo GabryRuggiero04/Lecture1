@@ -22,7 +22,7 @@ class GestoreOrdini:
         self._ordini_processati = []
         self._statistiche_prodotti = Counter()
         self._ordini_per_categoria = defaultdict(list) #Non da errore se non esiste una chiave ma restituisce una lista vuota
-        # self._dao = DAO()
+        self._dao = DAO()
         self._allP = []
         self._allC = []
         self._fill_data()

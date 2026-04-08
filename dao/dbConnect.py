@@ -26,6 +26,8 @@ class DBConnect:
                     # database="sw_gestionale",
                     pool_size = 3,
                     pool_name = "myPool",
+                    # percorso assoluto per file connector.cfg che contiene le "credenziali" del database
+                    # ".parent" ci fa tornare indietro di uno nella cartella del file in cui sto scrivendo
                     option_files = f"{pathlib.Path(__file__).resolve().parent}/connector.cfg"
                 )
                 return cls._myPool.get_connection()
